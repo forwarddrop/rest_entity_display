@@ -9,7 +9,7 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Render\RenderContext;
 use Drupal\Core\Render\RendererInterface;
 
-class RestEntityDisplayRenderer {
+class RestEntityViewDisplayRenderer {
 
   /**
    * @var \Drupal\Core\Render\RendererInterface
@@ -17,7 +17,7 @@ class RestEntityDisplayRenderer {
   protected $renderer;
 
   /**
-   * Creates a new RestEntityDisplayRenderer instance.
+   * Creates a new RestEntityViewDisplayRenderer instance.
    *
    * @param \Drupal\Core\Render\RendererInterface $renderer
    */

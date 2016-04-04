@@ -1,4 +1,4 @@
 services:
-  rest_entity_display.renderer:
+  rest_entity_display.view_renderer:
     class: \Drupal\rest_entity_display\RestEntityDisplayRenderer
     arguments: ['@renderer']

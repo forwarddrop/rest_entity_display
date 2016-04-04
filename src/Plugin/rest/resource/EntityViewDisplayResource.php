@@ -6,7 +6,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\rest\ResourceResponse;
-use Drupal\rest_entity_display\RestEntityDisplayRenderer;
+use Drupal\rest_entity_display\RestEntityViewDisplayRenderer;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -16,17 +16,17 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  * Provides a resource for rendering field formatters for REST.
  *
  * @RestResource(
- *   id = "rest_entity_display",
+ *   id = "rest_view_entity_display",
  *   label = @Translation("TODO"),
  *   uri_paths = {
- *     "canonical" = "/rest_entity_display/{entity_type_id}/{id}/{view_mode}"
+ *     "canonical" = "/rest_entity_view_display/{entity_type_id}/{id}/{view_mode}"
  *   }
  * )
  */
-class EntityDisplayResource extends ResourceBase {
+class EntityViewDisplayResource extends ResourceBase {
 
   /**
-   * @var \Drupal\rest_entity_display\RestEntityDisplayRenderer
+   * @var \Drupal\rest_entity_display\RestEntityViewDisplayRenderer
    */
   protected $renderer;
 
@@ -38,7 +38,7 @@ class EntityDisplayResource extends ResourceBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, array $serializer_formats, LoggerInterface $logger, EntityTypeManagerInterface $entityTypeManager, RestEntityDisplayRenderer $restRenderer) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, array $serializer_formats, LoggerInterface $logger, EntityTypeManagerInterface $entityTypeManager, RestEntityViewDisplayRenderer $restRenderer) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $serializer_formats, $logger);
 
     $this->entityTypeManager = $entityTypeManager;
@@ -56,7 +56,7 @@ class EntityDisplayResource extends ResourceBase {
       $container->getParameter('serializer.formats'),
       $container->get('logger.factory')->get('rest'),
       $container->get('entity_type.manager'),
-      $container->get('rest_entity_display.renderer')
+      $container->get('rest_entity_display.view_renderer')
     );
   }
 
