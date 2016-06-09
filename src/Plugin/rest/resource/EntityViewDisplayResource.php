@@ -63,16 +63,11 @@ class EntityViewDisplayResource extends ResourceBase {
   /**
    * Responds to GET requests.
    *
-   * Returns a watchdog log entry for the specified ID.
-   *
    * @param null $entity_type_id
    * @param int $id
-   *   The ID of the watchdog log entry.
-   *
    * @param null $view_mode
    *
-   * @return \Drupal\rest\ResourceResponse The response containing the log entry.
-   * The response containing the log entry.
+   * @return \Drupal\rest\ResourceResponse
    */
   public function get($entity_type_id = NULL, $id = NULL, $view_mode = NULL) {
     if (!$entity_type_id) {
